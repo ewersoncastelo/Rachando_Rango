@@ -9,23 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Form {
-            Section{
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
+        NavigationView {
+            Form {
+                Section{
+                    Text("Hello, world!")
+                }
             }
-            
-            Section{
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
-            }
+            .navigationBarTitle(Text("Rachando Rango"), displayMode: .inline)
         }
     }
 }
