@@ -8,31 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tapCount = 0
-    @State private var name = ""
+    @State private var totalCost = ""
+    @State private var numberOfPeople = 2
+    @State private var percentageTip = 2
     
-    let studentys = ["Harry", "Hermione", "Ron"]
-    @State private var selectedStudent = "Harry"
+    let percentagesTips = [5, 10, 15, 20, 0]
     
     var body: some View {
         NavigationView {
             Form {
-                Section{
-                    TextField("Enter with your name", text: $name)
-                    Text("Hello, \(name) how are you?")
-                    Button("Tap Count: \(tapCount)") {
-                        self.tapCount += 1
-                    }
+                Section {
+                    TextField("Total Cost", text: $totalCost)
+                        .keyboardType(.decimalPad)
                 }
                 
                 Section {
-                    Text("Please, shoose your studenty")
-                        .foregroundColor(.orange)
-                    Picker("Select your studenty", selection: $selectedStudent){
-                        ForEach(0 ..< studentys.count){
-                            Text("\(self.studentys[$0])")
-                        }
-                    }
+                    Text("The cost total is \(totalCost)")
                 }
             }
             .navigationBarTitle(Text("Rachando Rango"), displayMode: .inline)
