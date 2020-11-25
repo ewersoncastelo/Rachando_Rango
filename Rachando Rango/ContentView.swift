@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var percentageTip = 2
     
-    let percentagesTips = [5, 10, 15, 20, 0]
+    let percentagesTip = [5, 10, 15, 20, 0]
     
     var body: some View {
         NavigationView {
@@ -25,6 +25,15 @@ struct ContentView: View {
                             Text("\($0)")
                         }
                     }
+                }
+                
+                Section(header: Text("How much tip do you want?")){
+                    Picker("Percentagem Tip", selection: $percentageTip){
+                        ForEach(0..<percentagesTip.count){
+                            Text("\(self.percentagesTip[$0])%")
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section {
