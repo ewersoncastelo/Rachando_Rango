@@ -20,6 +20,11 @@ struct ContentView: View {
                 Section {
                     TextField("Total Cost", text: $totalCost)
                         .keyboardType(.decimalPad)
+                    Picker("Select the number of people", selection: $numberOfPeople) {
+                        ForEach(2..<100){
+                            Text("\($0)")
+                        }
+                    }
                 }
                 
                 Section {
