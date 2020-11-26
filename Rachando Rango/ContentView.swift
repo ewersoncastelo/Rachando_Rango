@@ -9,10 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var totalCost = ""
-    @State private var numberOfPeople = 2
-    @State private var percentageTip = 2
+    @State private var numberOfPeople = 0
+    @State private var percentageTip = 4
     
     let percentagesTip = [5, 10, 15, 20, 0]
+    
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(percentagesTip[percentageTip])
+        let orderAmount = Double(totalCost) ?? 0
+        
+        let tipValue = orderAmount / 100 * tipSelection
+        let grandTotal = orderAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+        
+        return amountPerPerson
+    }
     
     var body: some View {
         NavigationView {
@@ -37,7 +49,7 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Text("The cost total is \(totalCost)")
+                    Text("The cost total is \(totalPerPerson, specifier: "%.2f")")
                 }
             }
             .navigationBarTitle(Text("Rachando Rango"), displayMode: .inline)
