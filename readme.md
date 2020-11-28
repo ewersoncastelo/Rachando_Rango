@@ -23,10 +23,16 @@
 
 ![](Rachando_Rango.gif)
 
-## Instalation
+## Features
 
--   [SwiftUI](https://developer.apple.com/documentation/swiftui)
--   [XCode 11][vc]
+-   SwiftUI
+-   Form
+-   Section
+-   TextField
+-   Picker
+-   ForEach
+-   Text
+-   NavigationView
 
 ## How To Use
 
